@@ -9,14 +9,10 @@
 <% end %>
 
 <% if params[:flight] %>
-  <% if !@results.empty? %>
-    <p>Results:</p>
-    <%= form_for @results do |f| %>
-      <% @results.each do |result| %>
-        <%= f.radio_button(result) %>
-      <% end %>
+  <% if @results.any? %>
+    <h3>Search Results:</h3>
+    <% @results.each do |result| %>
+      <p><%= [result.from_airport.code, result.to_airport.code, result.departure] %></p>
     <% end %>
-  <% else %>
-    <p>No results! Sorry about that...</p>
   <% end %>
 <% end %>

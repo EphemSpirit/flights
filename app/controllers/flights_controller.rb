@@ -2,7 +2,7 @@ class FlightsController < ApplicationController
 
   def index
     @airports = Airport.all.map{ |x| [x.code, x.id] }
-    @dates = Flight.all.map{ |x| [x.departure] }
+    @dates = Flight.all.map{ |x| [x.departure.strftime("%Y-%m-%d")] }
     @passengers = [[1], [2], [3], [4]]
 
     if params[:flight]
