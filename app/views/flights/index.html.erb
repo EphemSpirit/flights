@@ -7,3 +7,16 @@
   Passengers: <%= f.select(:passengers, @passengers) %><br><br>
   <%= f.submit "Search Flights" %>
 <% end %>
+
+<% if params[:flight] %>
+  <% if !@results.empty? %>
+    <p>Results:</p>
+    <%= form_for @results do |f| %>
+      <% @results.each do |result| %>
+        <%= f.radio_button(result) %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>No results! Sorry about that...</p>
+  <% end %>
+<% end %>

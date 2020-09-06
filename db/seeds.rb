@@ -1,3 +1,6 @@
+Airport.delete_all
+Flight.delete_all
+
 airports = ["SFO", "LAX", "BOS", "LGA", "JFK", "RLA", "DFW"]
 
 airports.each do |airport|
