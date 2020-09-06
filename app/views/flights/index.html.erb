@@ -12,7 +12,9 @@
   <% if @results.any? %>
     <h3>Search Results:</h3>
     <% @results.each do |result| %>
-      <p><%= [result.from_airport.code, result.to_airport.code, result.departure] %></p>
+      <p><%= "#{result.from_airport.code} --> #{result.to_airport.code} on #{result.departure}" %></p>
     <% end %>
+  <% else %>
+    <p>No result! Sorry about that...</p>
   <% end %>
 <% end %>
