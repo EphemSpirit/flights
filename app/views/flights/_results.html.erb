@@ -1,9 +1,12 @@
 <%= form_for(:booking, url: new_booking_url, method: :GET) do |f| %>
+
   <h3>Search Results:</h3>
-  <% f.hidden_field(:passengers, value: params[:flight][:passengers]) %>
+
   <% @results.each do |result| %>
-    <%= f.radio_button(:id, result.id) %>
+    <%= f.hidden_field(:passengers, value: @num_pass) %>
+    <%= f.radio_button(:flight_id, result.id) %>
     <%= f.label(:flight_id, "#{result.from_airport.code} --> #{result.to_airport.code} on #{result.departure}") %>
   <% end %>
   <%= f.submit "Book this Flight" %>
+
 <% end %>
