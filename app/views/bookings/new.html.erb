@@ -1,0 +1,12 @@
+<h1>Your Flight Information</h1>
+
+<p>Flight from: <%= "#{@flight.from_airport.code} to #{@flight.to_airport.code} on #{@flight.departure}" %></p>
+
+<h3>Please fill out the passenger information below</h3>
+<%= form_for @booking do |f| %>
+  <%= fields_for :passengers do |passenger| %>
+    <%= passenger.text_field :name %><br><br>
+    <%= passenger.email_field :email %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
