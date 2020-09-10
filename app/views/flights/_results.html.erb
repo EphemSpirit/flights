@@ -2,8 +2,8 @@
 
   <h3>Search Results:</h3>
 
+  <%= f.hidden_field(:passengers, value: @num_pass) %>
   <% @results.each do |result| %>
-    <%= f.hidden_field(:passengers, value: @num_pass) %>
     <%= f.radio_button(:flight_id, result.id) %>
     <%= f.label(:flight_id, "#{result.from_airport.code} --> #{result.to_airport.code} on #{result.departure}") %>
   <% end %>

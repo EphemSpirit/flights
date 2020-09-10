@@ -10,4 +10,6 @@
 
 <% if params[:flight] && @results.any? %>
   <%= render 'results' %>
+<% elsif params[:flight] && !@results.any? %>
+  <p>No results! Sorry about that...</p>
 <% end %>
