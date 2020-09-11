@@ -4,16 +4,14 @@
 
 <h3>Please fill out the passenger information below</h3>
 <%= form_for @booking do |f| %>
-  <%= f.hidden_field(:flight_id) %>
-  <% @num_passengers.times do %>
-    <%= fields_for :passengers do |passenger| %>
-      <%= f.hidden_field(:flight_id, value: @flight.id) %>
-      <%= f.label :name, "Full Name: " %>
+  <%= f.hidden_field(:flight_id, value: @flight.id) %>
+    <%= f.fields_for :passengers do |passenger| %>
+      <%= passenger.hidden_field(:flight_id, value: @flight.id) %>
+      <%= passenger.label :name, "Full Name: " %>
       <%= passenger.text_field :name %><br><br>
-      <%= f.label :email, "Email: " %>
+      <%= passenger.label :email, "Email: " %>
       <%= passenger.email_field :email %><br><br>
       <hr>
     <% end %>
-  <% end %>
   <%= f.submit "Book your Flight!" %>
 <% end %>
