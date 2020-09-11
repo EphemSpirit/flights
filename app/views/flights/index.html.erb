@@ -8,11 +8,8 @@
   <%= f.submit "Search Flights" %>
 <% end %>
 
-<% if params[:flight] %>
-  <% if @results.any? %>
-    <h3>Search Results:</h3>
-    <% @results.each do |result| %>
-      <p><%= [result.from_airport.code, result.to_airport.code, result.departure] %></p>
-    <% end %>
-  <% end %>
+<% if params[:flight] && @results.any? %>
+  <%= render 'results' %>
+<% elsif params[:flight] && !@results.any? %>
+  <p>No results! Sorry about that...</p>
 <% end %>

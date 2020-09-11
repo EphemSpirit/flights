@@ -7,6 +7,8 @@ class FlightsController < ApplicationController
 
     if params[:flight]
       @results = Flight.where(["start = ? AND finish = ? AND departure = ?", flight_params[:from_airport], flight_params[:to_airport], flight_params[:departure]])
+      @num_pass = flight_params[:passengers]
+      @booking = Booking.new
     end
 
   end
@@ -14,7 +16,7 @@ class FlightsController < ApplicationController
   private
 
     def flight_params
-      params.require(:flight).permit(:from_airport, :to_airport, :departure, :passengers)
+      params.require(:flight).permit(:id, :from_airport, :to_airport, :departure, :passengers)
     end
 
 end

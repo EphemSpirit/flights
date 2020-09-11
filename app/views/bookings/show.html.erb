@@ -1,0 +1,14 @@
+<h1>Your flight has been booked!</h1>
+<p><%= "Flight from: #{@booking.flight.from_airport.code}" %></p>
+<p><%= "To: #{@booking.flight.to_airport.code}" %></p>
+<p><%= "Leaving on: #{@booking.flight.departure}" %></p>
+<p>
+  Passenger Information:
+  <ul>
+    <% @booking.passengers.each do |passenger| %>
+      <li><%= passenger.name %></li>
+      <li><%= passenger.email %></li>
+    <% end %>
+  </ul>
+<p>
+<%= link_to "Back to Flight Search", flights_url %>
