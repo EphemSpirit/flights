@@ -1,15 +1,31 @@
-<h1>Book a Flight</h1>
+<div class="container">
+  <h1 class="page-header">Book a Flight</h1>
 
-<%= form_for(:flight, url: flights_path, method: :GET) do |f| %>
-  From: <%= f.select(:from_airport, @airports) %><br><br>
-  To: <%= f.select(:to_airport, @airports) %><br><br>
-  Date of Flight: <%= f.select(:departure, @dates) %><br><br>
-  Passengers: <%= f.select(:passengers, @passengers) %><br><br>
-  <%= f.submit "Search Flights" %>
-<% end %>
+  <div class="container">
+    <form class="form-inline">
+      <%= form_for(:flight, url: flights_path, method: :GET) do |f| %>
+        <div class="form-group">
+          From: <%= f.select(:from_airport, options_for_select(@airports), class: "form-control") %><br><br>
+        </div>
+        <div class="form-group">
+          To: <%= f.select(:to_airport,options_for_select(@airports), class: "form-control") %><br><br>
+        </div>
+        <div class="form-group">
+          Date of Flight: <%= f.select(:departure, options_for_select(@dates), class: "form-control") %><br><br>
+        </div>
+        <div class="form-group">
+          Passengers: <%= f.select(:passengers, options_for_select(@passengers), class: "form-control") %><br><br>
+        </div>
+        <%= f.submit "Search Flights", { :class => "btn btn-primary" } %>
+      <% end %>
+    </form>
+  </div>
 
-<% if params[:flight] && @results.any? %>
-  <%= render 'results' %>
-<% elsif params[:flight] && !@results.any? %>
-  <p>No results! Sorry about that...</p>
-<% end %>
+  <div>
+    <% if params[:flight] && @results.any? %>
+      <%= render 'results' %>
+    <% elsif params[:flight] && !@results.any? %>
+      <p>No results! Sorry about that...</p>
+    <% end %>
+  </div>
+</div>

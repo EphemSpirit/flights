@@ -7,6 +7,6 @@
     <%= f.radio_button(:flight_id, result.id) %>
     <%= f.label(:flight_id, "#{result.from_airport.code} --> #{result.to_airport.code} on #{result.departure}") %>
   <% end %>
-  <%= f.submit "Book this Flight" %>
+  <%= f.submit "Book this Flight", class: "btn btn-primary" %>
 
 <% end %>

@@ -1,2 +1,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.container > h1 {
+  padding-top: 25px;
+}
+
+#company {
+  float: left;
+}
+
+#saying {
+  padding-top: 20px;
+}
+
+.form-group {
+  margin-top: 20px;
+  padding-right: 10px;
+}
