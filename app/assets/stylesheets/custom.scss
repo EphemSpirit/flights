@@ -1,12 +1,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.page-header {
+  margin-top: 50px;
+}
+
+h3 {
+  border-top: 2px solid grey;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .navbar {
   margin-bottom: 20px;
+  background-color: grey;
 }
 
 .container > h1 {
-  padding-top: 25px;
+  padding-top: 40px;
 }
 
 #company {
@@ -20,4 +31,39 @@
 .form-group {
   margin-top: 20px;
   padding-right: 10px;
+}
+
+.summary {
+  font-weight: bold;
+  font-size: 1.7em;
+}
+
+.info {
+  font-style: italic;
+  text-decoration: underline;
+  border-top: 2px solid grey;
+  padding-top: 10px;
+}
+
+.new_booking {
+  margin-top: 20px;
+  display: inline-block;
+  float: left;
+}
+
+.new_booking > input {
+  float: right;
+  margin-left: 15px;
+}
+
+.new_booking > input[type="submit"] {
+  float: left;
+}
+
+input[value="Book this Flight"] {
+  margin-left: 10px;
+}
+
+li {
+  list-style: square;
 }

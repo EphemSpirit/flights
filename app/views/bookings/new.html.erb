@@ -1,17 +1,20 @@
-<h1>Your Flight Information</h1>
+<h1 class="page-header">Your Flight Information</h1>
 
-<p>Flight from: <%= "#{@flight.from_airport.code} to #{@flight.to_airport.code} on #{@flight.departure}" %></p>
+<p class="summary">Flight from: <%= "#{@flight.from_airport.code} to #{@flight.to_airport.code} on #{@flight.departure}" %></p>
 
 <h3>Please fill out the passenger information below</h3>
-<%= form_for @booking do |f| %>
-  <%= f.hidden_field(:flight_id, value: @flight.id) %>
-    <%= f.fields_for :passengers do |passenger| %>
-      <%= passenger.hidden_field(:flight_id, value: @flight.id) %>
-      <%= passenger.label :name, "Full Name: " %>
-      <%= passenger.text_field :name %><br><br>
-      <%= passenger.label :email, "Email: " %>
-      <%= passenger.email_field :email %><br><br>
-      <hr>
-    <% end %>
-  <%= f.submit "Book your Flight!" %>
-<% end %>
+
+<div class="container">
+  <%= form_for @booking do |f| %>
+    <%= f.hidden_field(:flight_id, value: @flight.id) %>
+      <%= f.fields_for :passengers do |passenger| %>
+        <%= passenger.hidden_field(:flight_id, value: @flight.id) %>
+        <%= passenger.label :name, "Full Name: " %>
+        <%= passenger.text_field :name %><br><br>
+        <%= passenger.label :email, "Email: " %>
+        <%= passenger.email_field :email %><br><br>
+        <hr>
+      <% end %>
+    <%= f.submit "Book your Flight!", class: "btn btn-primary" %>
+  <% end %>
+</div>

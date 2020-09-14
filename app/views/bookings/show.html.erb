@@ -1,14 +1,15 @@
-<h1>Your flight has been booked!</h1>
-<p><%= "Flight from: #{@booking.flight.from_airport.code}" %></p>
-<p><%= "To: #{@booking.flight.to_airport.code}" %></p>
-<p><%= "Leaving on: #{@booking.flight.departure}" %></p>
-<p>
+<h1 class="page-header">Your flight has been booked!</h1>
+<h4><%= "Flight from: #{@booking.flight.from_airport.code}" %></h4>
+<h4><%= "To: #{@booking.flight.to_airport.code}" %></h4>
+<h4><%= "Leaving on: #{@booking.flight.departure}" %></h4>
+<p class="info">
   Passenger Information:
   <ul>
     <% @booking.passengers.each do |passenger| %>
-      <li><%= passenger.name %></li>
-      <li><%= passenger.email %></li>
+      <li>Name: <%= passenger.name %></li>
+      <li>Email: <%= passenger.email %></li>
+      <hr>
     <% end %>
   </ul>
 <p>
-<%= link_to "Back to Flight Search", flights_url %>
+<%= link_to "Back to Flight Search", flights_url, class: "btn btn-primary" %>
