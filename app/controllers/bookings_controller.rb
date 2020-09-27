@@ -14,6 +14,9 @@ class BookingsController < ApplicationController
     @flight = Flight.find(params[:booking][:flight_id])
     @booking = Booking.new(booking_params)
     if @booking.save
+      @booking.passengers.each do |passenger|
+        PassengerMailer.thank_you(passenger, @flight).deliver_now!
+      end
       redirect_to @booking
     end
   end
