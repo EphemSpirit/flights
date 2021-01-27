@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background-color: grey;
+}
+
 .page-header {
   margin-top: 50px;
 }
@@ -13,7 +17,12 @@ h3 {
 
 .navbar {
   margin-bottom: 20px;
-  background-color: grey;
+  background-color: blue;
+  .navbar-brand {
+    a {
+      color: white;
+    }
+  }
 }
 
 .container > h1 {
@@ -60,8 +69,9 @@ h3 {
   float: left;
 }
 
-input[value="Book this Flight"] {
+.booking-btn {
   margin-left: 10px;
+  margin-bottom: 20px;
 }
 
 li {
