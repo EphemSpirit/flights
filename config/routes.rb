@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'home#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   namespace :api do
@@ -11,5 +12,5 @@ Rails.application.routes.draw do
 
   resources :flights, only: [:index]
   resources :bookings, only: [:create, :show, :new]
-  root 'flights#index'
+  # root 'flights#index'
 end

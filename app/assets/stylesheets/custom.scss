@@ -2,8 +2,59 @@
 @import "bootstrap";
 
 body {
-  background-color: grey;
+  // background-color: grey;
+  background-image: linear-gradient(to bottom right, #0ba9b5, #bdf5f9);
 }
+
+// .layout-container {
+//   background-color: #fff;
+// }
+
+/* HOME PAGE */
+
+.home-container {
+   // background-image: linear-gradient(to bottom right, #0ba9b5, #bdf5f9);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   width: 100%;
+ }
+
+
+/* FLIGHTS INDEX */
+
+.index-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.index-header {
+  justify-self: flex-start;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* FLIGHTS FORM */
+
+.flight-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+  width: 40%;
+}
+
+.flight-fields {
+  width: 100%;
+}
+
+.form-select { margin-bottom: 10px; }
+
 
 h3 {
   border-top: 2px solid grey;

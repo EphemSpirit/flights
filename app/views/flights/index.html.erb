@@ -1,31 +1,59 @@
-<div class="container">
+<!-- <div class="container">
   <h1 class="page-header">Book a Flight</h1>
 
   <div class="container">
-    <%= form_for(:flight, url: flights_path, method: :GET, html: { class: "row gx-3 gy-2 align-items-center" }) do |f| %>
+    <%#= form_for(:flight, url: flights_path, method: :GET, html: { class: "row gx-3 gy-2 align-items-center" }) do |f| %>
       <div class="col-sm-3">
-        From: <%= f.select(:from_airport, options_for_select(@airports), class: "form-select") %><br><br>
+        From: <%#= f.select(:from_airport, options_for_select(@airports), class: "form-select") %><br><br>
       </div>
       <div class="col-sm-3">
-        To: <%= f.select(:to_airport,options_for_select(@airports), class: "form-select") %><br><br>
+        To: <%#= f.select(:to_airport,options_for_select(@airports), class: "form-select") %><br><br>
       </div>
       <div class="col-sm-3">
-        Date of Flight: <%= f.select(:departure, options_for_select(@dates), class: "form-select") %><br><br>
+        Date of Flight: <%#= f.select(:departure, options_for_select(@dates), class: "form-select") %><br><br>
       </div>
       <div class="col-sm-3">
-        Passengers: <%= f.select(:passengers, options_for_select(@passengers), class: "form-select") %><br><br>
+        Passengers: <%#= f.select(:passengers, options_for_select(@passengers), class: "form-select") %><br><br>
       </div>
       <div class="col-auto">
-        <%= f.submit "Search Flights", { :class => "btn btn-primary" } %>
+        <%#= f.submit "Search Flights", { :class => "btn btn-primary" } %>
       </div>
-    <% end %>
+    <%# end %>
   </div>
 
   <div>
-    <% if params[:flight] && @results.any? %>
-      <%= render 'results' %>
-    <% elsif params[:flight] && !@results.any? %>
+    <%# if params[:flight] && @results.any? %>
+      <%#= render 'results' %>
+    <%# elsif params[:flight] && !@results.any? %>
       <p>No results! Sorry about that...</p>
+    <%# end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="jumbotron d-flex justify-content-center">
+    Welcome to Flight Booker!
+  </div>
+</div> -->
+<div class="container index-container">
+  <div class="container index-header">
+    Book a Flight!
+  </div>
+  <div class="jumbotron flight-form">
+    <%= form_for(:flight, url: flights_path, method: :GET) do |f| %>
+      <div class="form-select mb-3">
+        <strong>From:</strong> <%= f.select(:from_airport, options_for_select(@airports)) %>
+      </div>
+      <div class="form-select mb-10">
+        <strong>To:</strong> <%= f.select(:to_airport, options_for_select(@airports)) %>
+      </div>
+      <div class="form-select mb-3">
+        <strong>Date of Flight:</strong> <%= f.select(:departure, options_for_select(@dates)) %>
+      </div>
+      <div class="form-select mb-3">
+        <strong>Passengers:</strong> <%= f.select(:passengers, options_for_select(@passengers)) %>
+      </div>
+      <%= f.submit "Search Flights", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
