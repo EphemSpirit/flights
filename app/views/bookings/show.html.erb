@@ -1,15 +1,42 @@
-<h1 class="page-header">Your flight has been booked!</h1>
-<h4><%= "Flight from: #{@booking.flight.from_airport.code}" %></h4>
-<h4><%= "To: #{@booking.flight.to_airport.code}" %></h4>
-<h4><%= "Leaving on: #{@booking.flight.departure}" %></h4>
-<p class="info">
-  Passenger Information:
-  <ul>
-    <% @booking.passengers.each do |passenger| %>
-      <li>Name: <%= passenger.name %></li>
-      <li>Email: <%= passenger.email %></li>
-      <hr>
-    <% end %>
-  </ul>
-<p>
-<%= link_to "Back to Flight Search", flights_url, class: "btn btn-primary" %>
+<!-- <div class="index-container">
+  <h1 class="page-header">Your flight has been booked!</h1>
+  <h4><%#= "Flight from: #{@booking.flight.from_airport.code}" %></h4>
+  <h4><%#= "To: #{@booking.flight.to_airport.code}" %></h4>
+  <h4><%#= "Leaving on: #{@booking.flight.departure}" %></h4>
+  <p class="info">
+    Passenger Information:
+    <ul>
+      <%# @booking.passengers.each do |passenger| %>
+        <li>Name: <%#= passenger.name %></li>
+        <li>Email: <%#= passenger.email %></li>
+        <hr>
+      <%# end %>
+    </ul>
+  <p>
+  <%#= link_to "Back to Flight Search", flights_url, class: "btn btn-primary" %>
+</div> -->
+
+<div class="container index-header">
+  Your flight has been booked!
+  <hr />
+</div>
+<div class="booking-container">
+  <div class="info-recap">
+    <h4><%= "Flight from: #{@booking.flight.from_airport.code}" %></h4>
+    <h4><%= "To: #{@booking.flight.to_airport.code}" %></h4>
+    <h4><%= "Departing on: #{@booking.flight.departure}" %></h4>
+  </div>
+  <div class="passengers-info">
+    Passengers:
+    <ul>
+      <% @booking.passengers.each do |passenger| %>
+        <div class="passenger-recap">
+          <li>Name: <%= passenger.name %></li>
+          <li>Email: <%= passenger.email %></li>
+        </div>
+        <hr />
+      <% end %>
+    </ul>
+  </div>
+  <%= link_to "Back to Flight Search", flights_url, class: "btn btn-primary back-btn" %>
+</div>

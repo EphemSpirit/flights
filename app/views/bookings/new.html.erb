@@ -1,24 +1,47 @@
-<h1 class="page-header">Your Flight Information</h1>
 
-<p class="summary">Flight from: <%= "#{@flight.from_airport.code} to #{@flight.to_airport.code} on #{@flight.departure}" %></p>
+<div class="container index-header">
+  Your Flight Information:
+</div>
+<div class="container-index-header">
+  <p class="summary"><%= "Flight from: #{@flight.from_airport.code} to #{@flight.to_airport.code} on #{@flight.departure} for #{@passengers} people" %></p>
+  <p class="summary">Please enter your passenger information below:</p>
+</div>
 
-<h3>Please fill out the passenger information below</h3>
-
-<div class="container">
-  <%= form_for @booking do |f| %>
-    <%= f.hidden_field(:flight_id, value: @flight.id) %>
-      <%= f.fields_for :passengers do |passenger| %>
+<!-- <div class="container">
+  <%#= form_for @booking do |f| %>
+    <%#= f.hidden_field(:flight_id, value: @flight.id) %>
+      <%#= f.fields_for :passengers do |passenger| %>
         <div class="row">
           <em>Passenger Info</em>
-          <%= passenger.hidden_field(:flight_id, value: @flight.id) %>
+          <%#= passenger.hidden_field(:flight_id, value: @flight.id) %>
           <div class="col">
-            <%= passenger.text_field :name, placeholder: "Name", class: "form-control" %><br><br>
+            <%#= passenger.text_field :name, placeholder: "Name", class: "form-control" %><br><br>
           </div>
           <div class="col">
-            <%= passenger.email_field :email, placeholder: "Email", class: "form-control" %><br><br>
+            <%#= passenger.email_field :email, placeholder: "Email", class: "form-control" %><br><br>
+          </div>
+        </div>
+      <%# end %>
+    <%#= f.submit "Book your Flight!", class: "btn btn-primary booking-btn" %>
+  <%# end %>
+</div> -->
+
+<div class="index-container">
+  <div class="booking-form">
+    <%= form_for @booking do |f| %>
+      <%= f.hidden_field(:flight_id, value: @flight.id) %>
+      <%= f.fields_for :passengers do |passenger| %>
+        <em>Passenger Information</em>
+        <div class="passenger">
+          <div class="passenger-name">
+            <%= passenger.text_field :name, placeholder: "Name", class: "form-control" %>
+          </div>
+          <div class="passenger-email">
+            <%= passenger.email_field :email, placeholder: "Email", class: "form-control" %>
           </div>
         </div>
       <% end %>
-    <%= f.submit "Book your Flight!", class: "btn btn-primary booking-btn" %>
-  <% end %>
+      <%= f.submit "Book your Flight!", class: "btn btn-primary booking-btn" %>
+    <% end %>
+  </div>
 </div>

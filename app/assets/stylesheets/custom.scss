@@ -22,105 +22,153 @@ body {
  }
 
 
-/* FLIGHTS INDEX */
+/* CONTAINERS */
 
-.index-container {
+.index-container,
+.booking-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
   height: 100vh;
 }
 
+.index-container {
+  justify-content: center;
+}
+
 .index-header {
-  justify-self: flex-start;
+  height: 75px;
+  line-height: 75px;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
+.index-container-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.index-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
 /* FLIGHTS FORM */
 
-.flight-form {
+.flight-form,
+.booking-form {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 25%;
-  width: 40%;
+  width: 100%;
+}
+
+.flight-form > form {
+  text-align: left;
 }
 
 .flight-fields {
   width: 100%;
 }
 
-.form-select { margin-bottom: 10px; }
+/* BOOKING FORM */
 
-
-h3 {
-  border-top: 2px solid grey;
-  padding-top: 10px;
-  padding-bottom: 10px;
+.booking-form {
+  display: flex;
+  justify-content: space-between;
 }
 
-.navbar {
-  margin-bottom: 20px;
-  background-color: blue;
-  .navbar-brand {
-    a {
-      color: white;
-    }
-  }
-}
-
-.container > h1 {
-  padding-top: 40px;
-}
-
-#company {
+.passenger-name,
+.passenger-email {
   float: left;
 }
 
-#saying {
-  padding-top: 20px;
+.input[type="text"] {
+  margin-right: 20px;
 }
 
-.form-group {
-  margin-top: 20px;
-  padding-right: 10px;
+.passenger-information { padding-bottom: 20px; }
+
+.booking-btn { margin-top: 20px; }
+
+.form-select { margin-bottom: 10px; }
+
+/* FLIGHT RESULTS */
+
+.flight-results {
+  border-top: 2px solid grey;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #666;
+  margin-top: -100px;
 }
 
+/* BOOKING SUMMARY */
+
+.booking-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-recap { margin-top: 40px; }
+
+.info-recap > h4 {
+  font-weight: bold;
+}
+
+.back-btn { width: 25%; }
+
+// .navbar {
+//   margin-bottom: 20px;
+//   background-color: blue;
+//   .navbar-brand {
+//     a {
+//       color: white;
+//     }
+//   }
+// }
+//
+// .container > h1 {
+//   padding-top: 40px;
+// }
+//
+// #company {
+//   float: left;
+// }
+//
+// #saying {
+//   padding-top: 20px;
+// }
+//
+// .form-group {
+//   margin-top: 20px;
+//   padding-right: 10px;
+// }
+//
 .summary {
   font-weight: bold;
   font-size: 1.7em;
 }
-
-.info {
-  font-style: italic;
-  text-decoration: underline;
-  border-top: 2px solid grey;
-  padding-top: 10px;
-}
-
-.new_booking {
-  margin-top: 20px;
-  display: inline-block;
-  float: left;
-}
-
-.new_booking > input {
-  float: right;
-  margin-left: 15px;
-}
-
-.new_booking > input[type="submit"] {
-  float: left;
-}
-
-.booking-btn {
-  margin-left: 10px;
-  margin-bottom: 20px;
-}
-
-li {
-  list-style: square;
-}
+//
+// .info {
+//   font-style: italic;
+//   text-decoration: underline;
+//   border-top: 2px solid grey;
+//   padding-top: 10px;
+// }
+//
+//
+// .booking-btn {
+//   margin-left: 10px;
+//   margin-bottom: 20px;
+// }
+//
+// li {
+//   list-style: square;
+// }
