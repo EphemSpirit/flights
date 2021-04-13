@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="index-right">
-    <% if available_flights? %>
+    <% if @results %>
       <%= render 'results' %>
     <% elsif no_results? %>
       <p class="lead">No Flights found that match your criteria.</p>

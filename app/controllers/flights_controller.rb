@@ -6,7 +6,7 @@ class FlightsController < ApplicationController
     @dates = Flight.all.map{ |x| [x.departure.strftime("%Y-%m-%d")] }
     @passengers = [[1], [2], [3], [4]]
 
-    if available_flights?
+    if params[:flight]
       @results = Flight.where(["start = ? AND finish = ? AND departure = ?", flight_params[:from_airport], flight_params[:to_airport], flight_params[:departure]])
       @num_pass = flight_params[:passengers]
       @booking = Booking.new
