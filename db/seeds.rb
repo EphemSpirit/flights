@@ -1,4 +1,5 @@
 Flight.destroy_all
+Airport.destroy_all
 
 airports = ["SFO", "LAX", "BOS", "LGA", "JFK", "RLA", "DFW"]
 
